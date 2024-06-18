@@ -2,13 +2,13 @@ import os
 from imaplib import IMAP4_SSL
 from email import message_from_bytes
 from models.email_model import Email
-from utils.gmail_utils import download_attachments
+from utils.email_utils import download_attachments
 
 class EmailService:
     def __init__(self, username, password):
         self.mail = IMAP4_SSL('imap.gmail.com')
         self.mail.login(username, password)
-        self.mail.select('inbox')
+        self.mail.select('Inbox')
 
     def fetch_emails(self):
         status, messages = self.mail.search(None, 'UNSEEN')
