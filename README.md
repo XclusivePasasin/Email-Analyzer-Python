@@ -5,16 +5,25 @@ The objective of this project is to develop an automated procedure to analyze em
 
 In order to install the project, we will create a .venv to install the dependencies
 
+# Step 
 ```bash
   pip install virtualenv
-
 ```
+# In case of error
 ```bash
+  Set-ExecutionPolicy Bypass -Scope Process
+```
+# Step Two
+```bash
+  python -m venv venv
   virtualenv venv
+```
+# Step Three
+```bash
   .\venv\Scripts\activate  
 ```
 Once the .venv terminal is installed and running, install the dependencies by running
-
+# Step Four
 ```bash
   pip install -r requirements.txt
 ```
