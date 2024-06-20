@@ -20,16 +20,13 @@ class EmailService:
 
     def fetch_emails(self):
         try:
-            # Asegúrate de que la carpeta está seleccionada antes de buscar
             if self.mail.state != 'SELECTED':
                 status, response = self.mail.select('inbox')
                 if status != 'OK':
                     raise IMAP4.error(f"Failed to reselect inbox: {status}")
 
-            # Obtener la fecha actual en el formato necesario para comparación
             today_date = datetime.now().strftime('%d-%b-%Y')
-
-            status, messages = self.mail.search(None, 'UNSEEN')
+            status, messages = self.mail.search(None, f'(UNSEEN SINCE {today_date})')
             if status != 'OK':
                 raise IMAP4.error(f"Failed to search emails: {status}")
 
@@ -42,19 +39,21 @@ class EmailService:
                     if isinstance(response_part, tuple):
                         msg = message_from_bytes(response_part[1])
                         if self._is_valid_email(msg):
-                            # Obtener la fecha del correo electrónico
                             email_date = msg['date']
-                            email_date_obj = datetime.strptime(email_date, '%a, %d %b %Y %H:%M:%S %z')
+                            try:
+                                email_date_obj = datetime.strptime(email_date, '%a, %d %b %Y %H:%M:%S %z')
+                            except ValueError:
+                                continue 
+
                             email_date_str = email_date_obj.strftime('%d-%b-%Y')
 
-                            # Comparar con la fecha actual
                             if email_date_str != today_date:
-                                continue  # Saltar este correo si no es del día actual
+                                continue  
 
-                            json_valid = False
+                            codigo_generacion = None
                             attachments = []
 
-                            # Descargar y procesar archivos JSON
+                            # Download and Process JSON attachment
                             for part in msg.walk():
                                 if part.get_content_maintype() == 'multipart':
                                     continue
@@ -62,22 +61,24 @@ class EmailService:
                                     json_files = download_attachments(part)
                                     for attachment in json_files:
                                         if attachment.endswith('.json'):
-                                            json_valid = process_json_file(attachment)
+                                            codigo_generacion = process_json_file(attachment)
                                             attachments.append(attachment)
-                                            if not json_valid:
-                                                # Eliminar archivos adjuntos si el JSON no es válido
+                                            if codigo_generacion is None:
+                                                # Delete attachments JSON if not validate
                                                 for file in attachments:
-                                                    try:
-                                                        os.remove(file)
-                                                    except Exception as e:
-                                                        print(f"Error deleting file {file}: {e}")
+                                                    if os.path.exists(file):
+                                                        try:
+                                                            os.remove(file)
+                                                            print(f"Archivo {file} eliminado por falta de nodos requeridos")
+                                                        except Exception as e:
+                                                            print(f"Error deleting file {file}: {e}")
                                                 attachments = []
-                                                break  # Salir del bucle si el JSON no es válido
-                                    if json_valid:
-                                        break  # Si ya se encontró un JSON válido, no buscar más
+                                                break
+                                    if codigo_generacion:
+                                        break  # If a valid JSON was already found, search no further
 
-                            # Descargar PDF solo si el JSON es válido
-                            if json_valid:
+                            # Download PDF only if the JSON is valid
+                            if codigo_generacion:
                                 pdf_downloaded = False
                                 for part in msg.walk():
                                     if part.get_content_maintype() == 'multipart':
@@ -86,11 +87,14 @@ class EmailService:
                                         if not pdf_downloaded:
                                             pdf_files = download_attachments(part)
                                             for attachment in pdf_files:
-                                                attachments.append(attachment)
+                                                # Rename the PDF with the codigo_generacion
+                                                pdf_new_file_path = os.path.join(os.path.dirname(attachment), f"{codigo_generacion}.pdf")
+                                                os.rename(attachment, pdf_new_file_path)
+                                                attachments.append(pdf_new_file_path)
                                                 pdf_downloaded = True
-                                                break  # Solo procesar un archivo PDF
+                                                break  
 
-                            if json_valid:
+                            if codigo_generacion:
                                 email = Email(
                                     sender=msg['from'],
                                     subject=msg['subject'],
@@ -99,6 +103,12 @@ class EmailService:
                                 )
                                 emails.append(email)
                                 self.mail.store(email_id, '+FLAGS', '\\Seen')
+                            else:
+                                # Mark as unread if the JSON is invalid
+                                self.mail.store(email_id, '-FLAGS', '\\Seen')
+                        else:
+                           # Mark as unread if invalid
+                            self.mail.store(email_id, '-FLAGS', '\\Seen')
             return emails
         except IMAP4.error as e:
             print(f"IMAP error occurred: {e}")

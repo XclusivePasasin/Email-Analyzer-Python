@@ -11,9 +11,9 @@ def process_json_file(file_path):
         new_file_path = os.path.join(os.path.dirname(file_path), f"{codigo_generacion}.json")
         os.rename(file_path, new_file_path)
         print(f"Archivo renombrado a {new_file_path}")
-        return True
+        return codigo_generacion
     else:
         os.remove(file_path)
         print(f"Archivo {file_path} eliminado por falta de nodos requeridos")
-        return False
+        return  None
 
