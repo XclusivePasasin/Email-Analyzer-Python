@@ -1,1 +1,3 @@
 Flask
+pymysql
+mysql-connector-python
