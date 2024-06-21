@@ -1,0 +1,152 @@
+{
+  "apendice": null,
+  "cuerpoDocumento": [
+    {
+      "cantidad": 1,
+      "codTributo": null,
+      "codigo": null,
+      "descripcion": "345367 FRIGIDAIR FKGA20C3MJG COCINA A GA",
+      "montoDescu": 0,
+      "noGravado": 0,
+      "numItem": 1,
+      "numeroDocumento": null,
+      "precioUni": 200.88,
+      "psv": 0,
+      "tipoItem": 3,
+      "tributos": [
+        "20"
+      ],
+      "uniMedida": 59,
+      "ventaExenta": 0,
+      "ventaGravada": 200.88,
+      "ventaNoSuj": 0
+    },
+    {
+      "cantidad": 1,
+      "codTributo": null,
+      "codigo": null,
+      "descripcion": "626072 MABE RMA300FXNU REFRIGERADORA 11P",
+      "montoDescu": 0,
+      "noGravado": 0,
+      "numItem": 2,
+      "numeroDocumento": null,
+      "precioUni": 468.14,
+      "psv": 0,
+      "tipoItem": 3,
+      "tributos": [
+        "20"
+      ],
+      "uniMedida": 59,
+      "ventaExenta": 0,
+      "ventaGravada": 468.14,
+      "ventaNoSuj": 0
+    }
+  ],
+  "documentoRelacionado": null,
+  "emisor": {
+    "codActividad": "46493",
+    "codEstable": "S539",
+    "codEstableMH": "S076",
+    "codPuntoVenta": "P024",
+    "codPuntoVentaMH": "P001",
+    "correo": "UnicomerSV@unicomer.com",
+    "descActividad": "Venta al por mayor de electrodomésticos y artículos del hogar excepto bazar; artículos de iluminación.",
+    "direccion": {
+      "complemento": "11539-CRC LOS PROCERES,SAN SALVADOR",
+      "departamento": "06",
+      "municipio": "14"
+    },
+    "nit": "06141108001032",
+    "nombre": "UNION COMERCIAL DE EL SALVADOR",
+    "nombreComercial": "11539-CRC LOS PROCERES,SAN SALVADOR",
+    "nrc": "1248292",
+    "telefono": "22091136",
+    "tipoEstablecimiento": "01"
+  },
+  "extension": {
+    "docuEntrega": "2616101",
+    "docuRecibe": "05111106161016",
+    "nombEntrega": "WENDY DÍAZ",
+    "nombRecibe": "GRUPO SANSIR SA DE CV",
+    "observaciones": null,
+    "placaVehiculo": null
+  },
+  "firmaElectronica": "eyJhbGciOiJSUzUxMiJ9.ewogICJpZGVudGlmaWNhY2lvbiIgOiB7CiAgICAidmVyc2lvbiIgOiAzLAogICAgImFtYmllbnRlIiA6ICIwMSIsCiAgICAidGlwb0R0ZSIgOiAiMDMiLAogICAgIm51bWVyb0NvbnRyb2wiIDogIkRURS0wMy1TMDc2UDAwMS0wMDAwMDAwMDAwMDIyNzkiLAogICAgImNvZGlnb0dlbmVyYWNpb24iIDogIjFDOTMyMDlFLTEyOUQtNDlDQy04QUQ0LTQ0NTFCOTQ0NDkxMSIsCiAgICAidGlwb01vZGVsbyIgOiAxLAogICAgInRpcG9PcGVyYWNpb24iIDogMSwKICAgICJ0aXBvQ29udGluZ2VuY2lhIiA6IG51bGwsCiAgICAibW90aXZvQ29udGluIiA6IG51bGwsCiAgICAiZmVjRW1pIiA6ICIyMDI0LTAxLTA0IiwKICAgICJob3JFbWkiIDogIjExOjM2OjE5IiwKICAgICJ0aXBvTW9uZWRhIiA6ICJVU0QiCiAgfSwKICAiZG9jdW1lbnRvUmVsYWNpb25hZG8iIDogbnVsbCwKICAiZW1pc29yIiA6IHsKICAgICJuaXQiIDogIjA2MTQxMTA4MDAxMDMyIiwKICAgICJucmMiIDogIjEyNDgyOTIiLAogICAgIm5vbWJyZSIgOiAiVU5JT04gQ09NRVJDSUFMIERFIEVMIFNBTFZBRE9SIiwKICAgICJjb2RBY3RpdmlkYWQiIDogIjQ2NDkzIiwKICAgICJkZXNjQWN0aXZpZGFkIiA6ICJWZW50YSBhbCBwb3IgbWF5b3IgZGUgZWxlY3Ryb2RvbcOpc3RpY29zIHkgYXJ0w61jdWxvcyBkZWwgaG9nYXIgZXhjZXB0byBiYXphcjsgYXJ0w61jdWxvcyBkZSBpbHVtaW5hY2nDs24uIiwKICAgICJub21icmVDb21lcmNpYWwiIDogIjExNTM5LUNSQyBMT1MgUFJPQ0VSRVMsU0FOIFNBTFZBRE9SIiwKICAgICJ0aXBvRXN0YWJsZWNpbWllbnRvIiA6ICIwMSIsCiAgICAiZGlyZWNjaW9uIiA6IHsKICAgICAgImRlcGFydGFtZW50byIgOiAiMDYiLAogICAgICAibXVuaWNpcGlvIiA6ICIxNCIsCiAgICAgICJjb21wbGVtZW50byIgOiAiMTE1MzktQ1JDIExPUyBQUk9DRVJFUyxTQU4gU0FMVkFET1IiCiAgICB9LAogICAgInRlbGVmb25vIiA6ICIyMjA5MTEzNiIsCiAgICAiY29ycmVvIiA6ICJVbmljb21lclNWQHVuaWNvbWVyLmNvbSIsCiAgICAiY29kRXN0YWJsZU1IIiA6ICJTMDc2IiwKICAgICJjb2RFc3RhYmxlIiA6ICJTNTM5IiwKICAgICJjb2RQdW50b1ZlbnRhTUgiIDogIlAwMDEiLAogICAgImNvZFB1bnRvVmVudGEiIDogIlAwMjQiCiAgfSwKICAicmVjZXB0b3IiIDogewogICAgIm5pdCIgOiAiMDUxMTExMDYxNjEwMTYiLAogICAgIm5yYyIgOiAiMjU3MzIzNCIsCiAgICAibm9tYnJlIiA6ICJHUlVQTyBTQU5TSVIgU0EgREUgQ1YiLAogICAgImNvZEFjdGl2aWRhZCIgOiAiNTYxMDEiLAogICAgImRlc2NBY3RpdmlkYWQiIDogIlJlc3RhdXJhbnRlcyIsCiAgICAibm9tYnJlQ29tZXJjaWFsIiA6ICIxMTUzOS1DUkMgTE9TIFBST0NFUkVTLFNBTiBTQUxWQURPUiIsCiAgICAiZGlyZWNjaW9uIiA6IHsKICAgICAgImRlcGFydGFtZW50byIgOiAiMDYiLAogICAgICAibXVuaWNpcGlvIiA6ICIxNCIsCiAgICAgICJjb21wbGVtZW50byIgOiAiQXZlbmlkYSBMYXMgQnJpc2FzICMxMC1CLCBDdW1icmVzIGRlIGxhIEVzY2Fsw7NuIgogICAgfSwKICAgICJ0ZWxlZm9ubyIgOiAiNzIwODQ5ODUiLAogICAgImNvcnJlbyIgOiAiZmFjdHVyYWNpb24uZ3JzYW5zaXJAZ21haWwuY29tIgogIH0sCiAgIm90cm9zRG9jdW1lbnRvcyIgOiBudWxsLAogICJ2ZW50YVRlcmNlcm8iIDogbnVsbCwKICAiY3VlcnBvRG9jdW1lbnRvIiA6IFsgewogICAgIm51bUl0ZW0iIDogMSwKICAgICJ0aXBvSXRlbSIgOiAzLAogICAgIm51bWVyb0RvY3VtZW50byIgOiBudWxsLAogICAgImNvZGlnbyIgOiBudWxsLAogICAgImNvZFRyaWJ1dG8iIDogbnVsbCwKICAgICJkZXNjcmlwY2lvbiIgOiAiMzQ1MzY3IEZSSUdJREFJUiBGS0dBMjBDM01KRyBDT0NJTkEgQSBHQSIsCiAgICAiY2FudGlkYWQiIDogMSwKICAgICJ1bmlNZWRpZGEiIDogNTksCiAgICAicHJlY2lvVW5pIiA6IDIwMC44OCwKICAgICJtb250b0Rlc2N1IiA6IDAsCiAgICAidmVudGFOb1N1aiIgOiAwLAogICAgInZlbnRhRXhlbnRhIiA6IDAsCiAgICAidmVudGFHcmF2YWRhIiA6IDIwMC44OCwKICAgICJ0cmlidXRvcyIgOiBbICIyMCIgXSwKICAgICJwc3YiIDogMCwKICAgICJub0dyYXZhZG8iIDogMAogIH0sIHsKICAgICJudW1JdGVtIiA6IDIsCiAgICAidGlwb0l0ZW0iIDogMywKICAgICJudW1lcm9Eb2N1bWVudG8iIDogbnVsbCwKICAgICJjb2RpZ28iIDogbnVsbCwKICAgICJjb2RUcmlidXRvIiA6IG51bGwsCiAgICAiZGVzY3JpcGNpb24iIDogIjYyNjA3MiBNQUJFIFJNQTMwMEZYTlUgUkVGUklHRVJBRE9SQSAxMVAiLAogICAgImNhbnRpZGFkIiA6IDEsCiAgICAidW5pTWVkaWRhIiA6IDU5LAogICAgInByZWNpb1VuaSIgOiA0NjguMTQsCiAgICAibW9udG9EZXNjdSIgOiAwLAogICAgInZlbnRhTm9TdWoiIDogMCwKICAgICJ2ZW50YUV4ZW50YSIgOiAwLAogICAgInZlbnRhR3JhdmFkYSIgOiA0NjguMTQsCiAgICAidHJpYnV0b3MiIDogWyAiMjAiIF0sCiAgICAicHN2IiA6IDAsCiAgICAibm9HcmF2YWRvIiA6IDAKICB9IF0sCiAgInJlc3VtZW4iIDogewogICAgInRvdGFsTm9TdWoiIDogMCwKICAgICJ0b3RhbEV4ZW50YSIgOiAwLAogICAgInRvdGFsR3JhdmFkYSIgOiA2NjkuMDMsCiAgICAic3ViVG90YWxWZW50YXMiIDogNjY5LjAzLAogICAgImRlc2N1Tm9TdWoiIDogMCwKICAgICJkZXNjdUV4ZW50YSIgOiAwLAogICAgImRlc2N1R3JhdmFkYSIgOiAwLjAsCiAgICAicG9yY2VudGFqZURlc2N1ZW50byIgOiAwLAogICAgInRvdGFsRGVzY3UiIDogMC4wLAogICAgInRyaWJ1dG9zIiA6IFsgewogICAgICAiY29kaWdvIiA6ICIyMCIsCiAgICAgICJkZXNjcmlwY2lvbiIgOiAiSW1wdWVzdG8gYWwgdmFsb3IgYWdyZWdhZG8gMTMlIiwKICAgICAgInZhbG9yIiA6IDg2Ljk4CiAgICB9IF0sCiAgICAic3ViVG90YWwiIDogNjY5LjAzLAogICAgIml2YVBlcmNpMSIgOiAwLAogICAgIml2YVJldGUxIiA6IDAsCiAgICAicmV0ZVJlbnRhIiA6IDAsCiAgICAibW9udG9Ub3RhbE9wZXJhY2lvbiIgOiA3NTYuMDEsCiAgICAidG90YWxOb0dyYXZhZG8iIDogMCwKICAgICJ0b3RhbFBhZ2FyIiA6IDc1Ni4wMSwKICAgICJ0b3RhbExldHJhcyIgOiAiICBTRVRFQ0lFTlRPUyBDSU5DVUVOVEEgWSBTRUlTIDAxLzEwMCBET0xBUkVTIiwKICAgICJzYWxkb0Zhdm9yIiA6IDAsCiAgICAiY29uZGljaW9uT3BlcmFjaW9uIiA6IDEsCiAgICAicGFnb3MiIDogWyB7CiAgICAgICJjb2RpZ28iIDogIjAyIiwKICAgICAgIm1vbnRvUGFnbyIgOiA0NTAuMCwKICAgICAgInBsYXpvIiA6IG51bGwsCiAgICAgICJyZWZlcmVuY2lhIiA6IG51bGwsCiAgICAgICJwZXJpb2RvIiA6IG51bGwKICAgIH0sIHsKICAgICAgImNvZGlnbyIgOiAiMDEiLAogICAgICAibW9udG9QYWdvIiA6IDMwNi4wLAogICAgICAicGxhem8iIDogbnVsbCwKICAgICAgInJlZmVyZW5jaWEiIDogbnVsbCwKICAgICAgInBlcmlvZG8iIDogbnVsbAogICAgfSBdLAogICAgIm51bVBhZ29FbGVjdHJvbmljbyIgOiBudWxsCiAgfSwKICAiZXh0ZW5zaW9uIiA6IHsKICAgICJub21iRW50cmVnYSIgOiAiV0VORFkgRMONQVoiLAogICAgImRvY3VFbnRyZWdhIiA6ICIyNjE2MTAxIiwKICAgICJub21iUmVjaWJlIiA6ICJHUlVQTyBTQU5TSVIgU0EgREUgQ1YiLAogICAgImRvY3VSZWNpYmUiIDogIjA1MTExMTA2MTYxMDE2IiwKICAgICJvYnNlcnZhY2lvbmVzIiA6IG51bGwsCiAgICAicGxhY2FWZWhpY3VsbyIgOiBudWxsCiAgfSwKICAiYXBlbmRpY2UiIDogbnVsbAp9.gIf0BaYAS7wxW-tWif3PkZ7lno7A7zEhk0LchuPJUwYH_R1FIkRCimSWDYWOGNzJuxpGNCH6jJd_mDQ2VpejKvzL5wAdxX2CaQ1sWFxhCuQIN9qrHmRL-GdLsk3-cg0ZfZpZMi-8BOFm3G18lNWCy7gpr7kUYryu1uabe9G2AXC3pYzgFnhpz4k-g63746UzIGAOIONVcYNsfhuOI_AjJNGLe79rDX_1ghKYKBvRZixBSCkfdilFldiH2HTMmLTXj58ljWMufev1OwJY1tpgOrTrBIy9k8YX8CJZxD1f3gpAaNCpect1LvwIErsQ0CbDTTU4YGvWGPmznm0xabDeVA",
+  "identificacion": {
+    "ambiente": "01",
+    "codigoGeneracion": "1C93209E-129D-49CC-8AD4-4451B9444911",
+    "fecEmi": "2024-01-04",
+    "horEmi": "11:36:19",
+    "motivoContin": null,
+    "numeroControl": "DTE-03-S076P001-000000000002279",
+    "tipoContingencia": null,
+    "tipoDte": "03",
+    "tipoModelo": 1,
+    "tipoMoneda": "USD",
+    "tipoOperacion": 1,
+    "version": 3
+  },
+  "otrosDocumentos": null,
+  "receptor": {
+    "codActividad": "56101",
+    "correo": "facturacion.grsansir@gmail.com",
+    "descActividad": "Restaurantes",
+    "direccion": {
+      "complemento": "Avenida Las Brisas #10-B, Cumbres de la Escalón",
+      "departamento": "06",
+      "municipio": "14"
+    },
+    "nit": "05111106161016",
+    "nombre": "GRUPO SANSIR SA DE CV",
+    "nombreComercial": "11539-CRC LOS PROCERES,SAN SALVADOR",
+    "nrc": "2573234",
+    "telefono": "72084985"
+  },
+  "resumen": {
+    "condicionOperacion": 1,
+    "descuExenta": 0,
+    "descuGravada": 0,
+    "descuNoSuj": 0,
+    "ivaPerci1": 0,
+    "ivaRete1": 0,
+    "montoTotalOperacion": 756.01,
+    "numPagoElectronico": null,
+    "pagos": [
+      {
+        "codigo": "02",
+        "montoPago": 450,
+        "periodo": null,
+        "plazo": null,
+        "referencia": null
+      },
+      {
+        "codigo": "01",
+        "montoPago": 306,
+        "periodo": null,
+        "plazo": null,
+        "referencia": null
+      }
+    ],
+    "porcentajeDescuento": 0,
+    "reteRenta": 0,
+    "saldoFavor": 0,
+    "subTotal": 669.03,
+    "subTotalVentas": 669.03,
+    "totalDescu": 0,
+    "totalExenta": 0,
+    "totalGravada": 669.03,
+    "totalLetras": "  SETECIENTOS CINCUENTA Y SEIS 01/100 DOLARES",
+    "totalNoGravado": 0,
+    "totalNoSuj": 0,
+    "totalPagar": 756.01,
+    "tributos": [
+      {
+        "codigo": "20",
+        "descripcion": "Impuesto al valor agregado 13%",
+        "valor": 86.98
+      }
+    ]
+  },
+  "selloRecibido": "20248C946589225243499302E8C65516CB58MTYM",
+  "ventaTercero": null
+}
