@@ -1,0 +1,130 @@
+{
+  "apendice": [],
+  "cuerpoDocumento": [
+    {
+      "cantidad": 1,
+      "codTributo": null,
+      "codigo": "3418",
+      "descripcion": "DUNLOP 100/80-17 52H-GT601 TUBULAR DELANTERA",
+      "montoDescu": 30.5,
+      "noGravado": 0,
+      "numItem": 1,
+      "numeroDocumento": null,
+      "precioUni": 76.2471,
+      "psv": 0,
+      "tipoItem": 1,
+      "tributos": [
+        "20"
+      ],
+      "uniMedida": 59,
+      "ventaExenta": 0,
+      "ventaGravada": 45.75,
+      "ventaNoSuj": 0
+    },
+    {
+      "cantidad": 1,
+      "codTributo": null,
+      "codigo": "8940",
+      "descripcion": "DESARMADO/ARMADO DE LLANTA DE MOTO",
+      "montoDescu": 0,
+      "noGravado": 0,
+      "numItem": 2,
+      "numeroDocumento": null,
+      "precioUni": 4.4248,
+      "psv": 0,
+      "tipoItem": 2,
+      "tributos": [
+        "20"
+      ],
+      "uniMedida": 59,
+      "ventaExenta": 0,
+      "ventaGravada": 4.42,
+      "ventaNoSuj": 0
+    }
+  ],
+  "documentoRelacionado": null,
+  "emisor": {
+    "codActividad": "45301",
+    "codEstable": null,
+    "codEstableMH": "S014",
+    "codPuntoVenta": null,
+    "codPuntoVentaMH": "P001",
+    "correo": "facturaelectronica@unillantas.com.sv",
+    "descActividad": "Venta de partes, piezas y accesorios nuevos para vehículos automotores",
+    "direccion": {
+      "complemento": "11 CALLE PONIENTE Y 65 AVENIDA NORTE COL. ESCALON, # 391211 CALLE PONIENTE Y 65 AVENIDA NORTE, COL. ESCALON, # 3912",
+      "departamento": "06",
+      "municipio": "14"
+    },
+    "nit": "02102701001014",
+    "nombre": "UNILLANTAS S.A DE C.V",
+    "nombreComercial": "SUCURSAL LA 75",
+    "nrc": "1192881",
+    "telefono": "22250000",
+    "tipoEstablecimiento": "01"
+  },
+  "extension": null,
+  "firmaElectronica": "eyJhbGciOiJSUzUxMiJ9.ewogICJpZGVudGlmaWNhY2lvbiIgOiB7CiAgICAidmVyc2lvbiIgOiAzLAogICAgImFtYmllbnRlIiA6ICIwMSIsCiAgICAidGlwb0R0ZSIgOiAiMDMiLAogICAgIm51bWVyb0NvbnRyb2wiIDogIkRURS0wMy1TMDE0UDAwMS0wMDAwMDAwMDAwMDAwMDMiLAogICAgImNvZGlnb0dlbmVyYWNpb24iIDogIkI0NkJEMjMwLUY3NDEtNEM1Ny04QzBFLUI3NzdGRUI0NjY3MSIsCiAgICAidGlwb01vZGVsbyIgOiAxLAogICAgInRpcG9PcGVyYWNpb24iIDogMSwKICAgICJ0aXBvQ29udGluZ2VuY2lhIiA6IG51bGwsCiAgICAiZmVjRW1pIiA6ICIyMDI0LTAxLTAyIiwKICAgICJob3JFbWkiIDogIjA4OjM4OjQzIiwKICAgICJ0aXBvTW9uZWRhIiA6ICJVU0QiLAogICAgIm1vdGl2b0NvbnRpbiIgOiBudWxsCiAgfSwKICAiZW1pc29yIiA6IHsKICAgICJuaXQiIDogIjAyMTAyNzAxMDAxMDE0IiwKICAgICJucmMiIDogIjExOTI4ODEiLAogICAgIm5vbWJyZSIgOiAiVU5JTExBTlRBUyBTLkEgREUgQy5WIiwKICAgICJjb2RBY3RpdmlkYWQiIDogIjQ1MzAxIiwKICAgICJkZXNjQWN0aXZpZGFkIiA6ICJWZW50YSBkZSBwYXJ0ZXMsIHBpZXphcyB5IGFjY2Vzb3Jpb3MgbnVldm9zIHBhcmEgdmVow61jdWxvcyBhdXRvbW90b3JlcyIsCiAgICAibm9tYnJlQ29tZXJjaWFsIiA6ICJTVUNVUlNBTCBMQSA3NSIsCiAgICAidGlwb0VzdGFibGVjaW1pZW50byIgOiAiMDEiLAogICAgImRpcmVjY2lvbiIgOiB7CiAgICAgICJkZXBhcnRhbWVudG8iIDogIjA2IiwKICAgICAgIm11bmljaXBpbyIgOiAiMTQiLAogICAgICAiY29tcGxlbWVudG8iIDogIjExIENBTExFIFBPTklFTlRFIFkgNjUgQVZFTklEQSBOT1JURSBDT0wuIEVTQ0FMT04sICMgMzkxMjExIENBTExFIFBPTklFTlRFIFkgNjUgQVZFTklEQSBOT1JURSwgQ09MLiBFU0NBTE9OLCAjIDM5MTIiCiAgICB9LAogICAgInRlbGVmb25vIiA6ICIyMjI1MDAwMCIsCiAgICAiY29ycmVvIiA6ICJmYWN0dXJhZWxlY3Ryb25pY2FAdW5pbGxhbnRhcy5jb20uc3YiLAogICAgImNvZEVzdGFibGVNSCIgOiAiUzAxNCIsCiAgICAiY29kRXN0YWJsZSIgOiBudWxsLAogICAgImNvZFB1bnRvVmVudGFNSCIgOiAiUDAwMSIsCiAgICAiY29kUHVudG9WZW50YSIgOiBudWxsCiAgfSwKICAicmVjZXB0b3IiIDogewogICAgIm5pdCIgOiAiMDUxMTExMDYxNjEwMTYiLAogICAgIm5yYyIgOiAiMjU3MzIzNCIsCiAgICAiY29kQWN0aXZpZGFkIiA6ICI1NjEwMSIsCiAgICAiZGVzY0FjdGl2aWRhZCIgOiAiUkVTVEFVUkFOVEVTIiwKICAgICJub21icmUiIDogIkdSVVBPIFNBTlNJUiwgU09DSUVEQUQgQU5PTklNQSBERSBDQVBJVEFMIFZBUklBQkxFIiwKICAgICJkaXJlY2Npb24iIDogewogICAgICAiZGVwYXJ0YW1lbnRvIiA6ICIwNiIsCiAgICAgICJtdW5pY2lwaW8iIDogIjE0IiwKICAgICAgImNvbXBsZW1lbnRvIiA6ICJDQUxMRSBFTCBNSVJBRE9SLCBDT0wuIEVTQ0FMT04gLCAjMTQ3LCBTQU4gU0FMVkFET1IgIgogICAgfSwKICAgICJjb3JyZW8iIDogImZhY3R1cmFjaW9uLmdyc2Fuc2lyQGdtYWlsLmNvbSIsCiAgICAidGVsZWZvbm8iIDogIjc4MzYtNjg4NyIsCiAgICAibm9tYnJlQ29tZXJjaWFsIiA6ICJHUlVQTyBTQU5TSVIsIFNPQ0lFREFEIEFOT05JTUEgREUgQ0FQSVRBTCBWQVJJQUJMRSIKICB9LAogICJ2ZW50YVRlcmNlcm8iIDogbnVsbCwKICAiY3VlcnBvRG9jdW1lbnRvIiA6IFsgewogICAgIm51bUl0ZW0iIDogMSwKICAgICJ0aXBvSXRlbSIgOiAxLAogICAgImNhbnRpZGFkIiA6IDEuMCwKICAgICJudW1lcm9Eb2N1bWVudG8iIDogbnVsbCwKICAgICJjb2RUcmlidXRvIiA6IG51bGwsCiAgICAidW5pTWVkaWRhIiA6IDU5LAogICAgImRlc2NyaXBjaW9uIiA6ICJEVU5MT1AgMTAwLzgwLTE3IDUySC1HVDYwMSBUVUJVTEFSIERFTEFOVEVSQSIsCiAgICAiY29kaWdvIiA6ICIzNDE4IiwKICAgICJwc3YiIDogMCwKICAgICJub0dyYXZhZG8iIDogMCwKICAgICJwcmVjaW9VbmkiIDogNzYuMjQ3MSwKICAgICJtb250b0Rlc2N1IiA6IDMwLjUsCiAgICAidmVudGFOb1N1aiIgOiAwLjAsCiAgICAidmVudGFFeGVudGEiIDogMC4wLAogICAgInZlbnRhR3JhdmFkYSIgOiA0NS43NSwKICAgICJ0cmlidXRvcyIgOiBbICIyMCIgXQogIH0sIHsKICAgICJudW1JdGVtIiA6IDIsCiAgICAidGlwb0l0ZW0iIDogMiwKICAgICJjYW50aWRhZCIgOiAxLjAsCiAgICAibnVtZXJvRG9jdW1lbnRvIiA6IG51bGwsCiAgICAiY29kVHJpYnV0byIgOiBudWxsLAogICAgInVuaU1lZGlkYSIgOiA1OSwKICAgICJkZXNjcmlwY2lvbiIgOiAiREVTQVJNQURPL0FSTUFETyBERSBMTEFOVEEgREUgTU9UTyIsCiAgICAiY29kaWdvIiA6ICI4OTQwIiwKICAgICJwc3YiIDogMCwKICAgICJub0dyYXZhZG8iIDogMCwKICAgICJwcmVjaW9VbmkiIDogNC40MjQ4LAogICAgIm1vbnRvRGVzY3UiIDogMC4wLAogICAgInZlbnRhTm9TdWoiIDogMC4wLAogICAgInZlbnRhRXhlbnRhIiA6IDAuMCwKICAgICJ2ZW50YUdyYXZhZGEiIDogNC40MiwKICAgICJ0cmlidXRvcyIgOiBbICIyMCIgXQogIH0gXSwKICAicmVzdW1lbiIgOiB7CiAgICAicmV0ZVJlbnRhIiA6IDAsCiAgICAic2FsZG9GYXZvciIgOiAwLAogICAgImNvbmRpY2lvbk9wZXJhY2lvbiIgOiAxLAogICAgInBhZ29zIiA6IG51bGwsCiAgICAibnVtUGFnb0VsZWN0cm9uaWNvIiA6IG51bGwsCiAgICAidG90YWxOb1N1aiIgOiAwLjAsCiAgICAidG90YWxFeGVudGEiIDogMC4wLAogICAgInRvdGFsR3JhdmFkYSIgOiA1MC4xOCwKICAgICJzdWJUb3RhbFZlbnRhcyIgOiA1MC4xOCwKICAgICJkZXNjdU5vU3VqIiA6IDAuMCwKICAgICJkZXNjdUV4ZW50YSIgOiAwLjAsCiAgICAiZGVzY3VHcmF2YWRhIiA6IDAuMCwKICAgICJwb3JjZW50YWplRGVzY3VlbnRvIiA6IDAsCiAgICAidG90YWxEZXNjdSIgOiAzNC40NiwKICAgICJpdmFQZXJjaTEiIDogMC4wLAogICAgInN1YlRvdGFsIiA6IDUwLjE4LAogICAgIml2YVJldGUxIiA6IDAuMCwKICAgICJtb250b1RvdGFsT3BlcmFjaW9uIiA6IDU2LjcsCiAgICAidG90YWxOb0dyYXZhZG8iIDogMC4wLAogICAgInRvdGFsUGFnYXIiIDogNTYuNywKICAgICJ0b3RhbExldHJhcyIgOiAiY2luY3VlbnRhIHkgc2VpcyBkb2xhcmVzIGNvbiBzZXRlbnRhIGNlbnRhdm9zIiwKICAgICJ0cmlidXRvcyIgOiBbIHsKICAgICAgImNvZGlnbyIgOiAiMjAiLAogICAgICAiZGVzY3JpcGNpb24iIDogIkltcHVlc3RvIGFsIFZhbG9yIEFncmVnYWRvIDEzJSIsCiAgICAgICJ2YWxvciIgOiA2LjUyCiAgICB9IF0KICB9LAogICJhcGVuZGljZSIgOiBudWxsLAogICJkb2N1bWVudG9SZWxhY2lvbmFkbyIgOiBudWxsLAogICJleHRlbnNpb24iIDogbnVsbCwKICAib3Ryb3NEb2N1bWVudG9zIiA6IG51bGwKfQ.QzLKjCsC-pAwIsTIMlbbH7mpNVG2YcWcXqSrZ-h1hrBoZ7HOmbdlIWOEv1eTOrKgpg2PUE9cF7oo_brZ2PbT41rWJ8Os9q6n7Aqj9Uj_2Ccf8quKMOVu1thc_pb-7C_R45Frcxnyi34tMv2PXLwpa1v2Z92P7_bFtdqJLKVEStbyoKtbdJbxyM9ivgCYXLuMk7aCfyiLfrSwd_ok8hUFQ-TeXTQRxvj0L0qvpIiTCxaiRysf0iS0R1r2tUKPbluWnwno03Lvt6qOeh_ibGgBoXmc8XDn-oEmOWGtL424-tNTVo1zNGZkacgEVjYJsoWQ_fIPHBF0-ztF3W-7aYxoAQ",
+  "identificacion": {
+    "ambiente": "01",
+    "codigoGeneracion": "B46BD230-F741-4C57-8C0E-B777FEB46671",
+    "fecEmi": "2024-01-02",
+    "horEmi": "08:38:43",
+    "motivoContin": null,
+    "numeroControl": "DTE-03-S014P001-000000000000003",
+    "tipoContingencia": null,
+    "tipoDte": "03",
+    "tipoModelo": 1,
+    "tipoMoneda": "USD",
+    "tipoOperacion": 1,
+    "version": 3
+  },
+  "otrosDocumentos": null,
+  "receptor": {
+    "codActividad": "56101",
+    "correo": "facturacion.grsansir@gmail.com",
+    "descActividad": "RESTAURANTES",
+    "direccion": {
+      "complemento": "CALLE EL MIRADOR, COL. ESCALON , #147, SAN SALVADOR ",
+      "departamento": "06",
+      "municipio": "14"
+    },
+    "nit": "05111106161016",
+    "nombre": "GRUPO SANSIR, SOCIEDAD ANONIMA DE CAPITAL VARIABLE",
+    "nombreComercial": "GRUPO SANSIR, SOCIEDAD ANONIMA DE CAPITAL VARIABLE",
+    "nrc": "2573234",
+    "telefono": "7836-6887"
+  },
+  "resumen": {
+    "condicionOperacion": 1,
+    "descuExenta": 0,
+    "descuGravada": 0,
+    "descuNoSuj": 0,
+    "ivaPerci1": 0,
+    "ivaRete1": 0,
+    "montoTotalOperacion": 56.7,
+    "numPagoElectronico": null,
+    "pagos": null,
+    "porcentajeDescuento": 0,
+    "reteRenta": 0,
+    "saldoFavor": 0,
+    "subTotal": 50.18,
+    "subTotalVentas": 50.18,
+    "totalDescu": 34.46,
+    "totalExenta": 0,
+    "totalGravada": 50.18,
+    "totalLetras": "cincuenta y seis dolares con setenta centavos",
+    "totalNoGravado": 0,
+    "totalNoSuj": 0,
+    "totalPagar": 56.7,
+    "tributos": [
+      {
+        "codigo": "20",
+        "descripcion": "Impuesto al Valor Agregado 13%",
+        "valor": 6.52
+      }
+    ]
+  },
+  "selloRecibido": "2024374084BF44FA4328964349F0C8C14D71JCWP",
+  "ventaTercero": null
+}
