@@ -50,7 +50,7 @@ class EmailService:
                             if email_date_str != today_date:
                                 continue  
 
-                            codigo_generacion = None
+                            generation_code = None
                             attachments = []
 
                             # Download and Process JSON attachment
@@ -61,9 +61,9 @@ class EmailService:
                                     json_files = download_attachments(part)
                                     for attachment in json_files:
                                         if attachment.endswith('.json'):
-                                            codigo_generacion = process_json_file(attachment)
+                                            generation_code = process_json_file(attachment)
                                             attachments.append(attachment)
-                                            if codigo_generacion is None:
+                                            if generation_code is None:
                                                 # Delete attachments JSON if not validate
                                                 for file in attachments:
                                                     if os.path.exists(file):
@@ -74,11 +74,11 @@ class EmailService:
                                                             print(f"Error deleting file {file}: {e}")
                                                 attachments = []
                                                 break
-                                    if codigo_generacion:
+                                    if generation_code:
                                         break  # If a valid JSON was already found, search no further
 
                             # Download PDF only if the JSON is valid
-                            if codigo_generacion:
+                            if generation_code:
                                 pdf_downloaded = False
                                 for part in msg.walk():
                                     if part.get_content_maintype() == 'multipart':
@@ -87,14 +87,14 @@ class EmailService:
                                         if not pdf_downloaded:
                                             pdf_files = download_attachments(part)
                                             for attachment in pdf_files:
-                                                # Rename the PDF with the codigo_generacion
-                                                pdf_new_file_path = os.path.join(os.path.dirname(attachment), f"{codigo_generacion}.pdf")
+                                                # Rename the PDF with the generation_code
+                                                pdf_new_file_path = os.path.join(os.path.dirname(attachment), f"{generation_code}.pdf")
                                                 os.rename(attachment, pdf_new_file_path)
                                                 attachments.append(pdf_new_file_path)
                                                 pdf_downloaded = True
                                                 break  
 
-                            if codigo_generacion:
+                            if generation_code:
                                 email = Email(
                                     sender=msg['from'],
                                     subject=msg['subject'],
