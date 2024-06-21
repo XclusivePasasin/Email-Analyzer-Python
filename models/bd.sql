@@ -1,16 +1,18 @@
 -- Create the database
-CREATE DATABASE Information;
+CREATE DATABASE Informations;
 
 -- Select the database
-USE Information;
+USE Informations;
 
 -- Create the table Invoices
 CREATE TABLE Invoices (
-    GenerationCode INT PRIMARY KEY,
-    ControlNumber VARCHAR(50),
-    ReceiverName VARCHAR(100),
-    IssuerName VARCHAR(100),
-    IssuerNit VARCHAR(20),
-    IssuerNrc VARCHAR(20),
-    Date DATE
+    Generation_Code VARCHAR(50) PRIMARY KEY,
+    Control_Number VARCHAR(50),
+    Receiver_Name VARCHAR(100),
+    Issuer_Name VARCHAR(100),
+    Issuer_Nit VARCHAR(20),
+    Issuer_Nrc VARCHAR(20),
+    Date VARCHAR(100),
+    File_Path_JSON VARCHAR(255),
+    File_Path_PDF VARCHAR(255)
 );

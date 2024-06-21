@@ -1,6 +1,7 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, render_template
 from services.email_service import EmailService
 from config import Config
+from utils.db_utils import get_all_invoices
 
 email_bp = Blueprint('email_bp', __name__)
 
@@ -15,3 +16,8 @@ def fetch_emails():
         'attachments': email.attachments
     } for email in emails]
     return jsonify(emails_data)
+
+@email_bp.route('/invoices')
+def show_invoices():
+    invoices = get_all_invoices()
+    return render_template('invoices.html', invoices=invoices)
