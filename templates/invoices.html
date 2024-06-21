@@ -6,14 +6,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.5.6/jsoneditor.min.css">
     <style>
-        *{
-            font-family: 'Arial', sans-serif;}
+        * {
+            font-family: 'Arial', sans-serif;
+        }
         body {
             background-color: #f8f9fa;
         }
-        .btn-primary{
+        .btn-primary {
             background-color: #003366;
             border-color: #003366;
+            border-radius:25px;
         }
         .table-container {
             background-color: #fff;
@@ -25,6 +27,9 @@
             background-color: #003366;
             color: #fff;
             text-align: center;
+        }
+        .container {
+            max-width: 95%;
         }
         .table tbody tr:hover {
             background-color: #f1f1f1;
@@ -52,45 +57,57 @@
                 padding: 10px;
             }
             .table td, .table th {
-                padding: 20px;
+                padding: 10px;
+            }
+            .form-inline {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .form-group {
+                width: 100%;
+            }
+            .form-group input, .form-group button {
+                width: 100%;
+                margin-bottom: 10px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="header-title">Invoices</h1>
+        <h1 class="header-title">ClobiTech</h1>
         <br>
-        
         <div class="table-container">
-            
             <form class="form-inline mb-3" id="filterForm">
-                <div class="form-group mx-sm-2 mb-2">
-                    <label for="genCode" class="sr-only">Generation Code</label>
-                                           
-                    <input type="text" class="form-control" id="genCode" placeholder="Generation Code">
+                <div class="form-row w-100">
+                    <div class="form-group col-md-2 mb-2">
+                        <label for="genCode" class="sr-only">Generation Code</label>
+                        <input type="text" class="form-control w-100" id="genCode" placeholder="Generation Code">
+                    </div>
+                    <div class="form-group col-md-2 mb-2">
+                        <label for="controlNumber" class="sr-only">Control Number</label>
+                        <input type="text" class="form-control w-100" id="controlNumber" placeholder="Control Number">
+                    </div>
+                    <div class="form-group col-md-2 mb-2">
+                        <label for="issuerNit" class="sr-only">Issuer Nit</label>
+                        <input type="text" class="form-control w-100" id="issuerNit" placeholder="Issuer Nit">
+                    </div>
+                    <div class="form-group col-md-2 mb-2">
+                        <label for="issuerNrc" class="sr-only">Issuer Nrc</label>
+                        <input type="text" class="form-control w-100" id="issuerNrc" placeholder="Issuer Nrc">
+                    </div>
+                    <div class="form-group col-md-2 mb-2">
+                        <label for="startDate" class="sr-only">Desde</label>
+                        <input type="date" class="form-control w-100" id="startDate" placeholder="Desde">
+                    </div>
+                    <div class="form-group col-md-2 mb-2">
+                        <label for="endDate" class="sr-only">Hasta</label>
+                        <input type="date" class="form-control w-100" id="endDate" placeholder="Hasta">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <button type="button" class="btn btn-primary w-10" id="filterBtn">Search</button>
+                    </div>
                 </div>
-                <div class="form-group mx-sm-2 mb-2">
-                    <label for="controlNumber" class="sr-only">Control Number</label>
-                    <input type="text" class="form-control" id="controlNumber" placeholder="Control Number">
-                </div>
-                <div class="form-group mx-sm-2 mb-2">
-                    <label for="issuerNit" class="sr-only">Issuer Nit</label>
-                    <input type="text" class="form-control" id="issuerNit" placeholder="Issuer Nit">
-                </div>
-                <div class="form-group mx-sm-2 mb-2">
-                    <label for="issuerNrc" class="sr-only">Issuer Nrc</label>
-                    <input type="text" class="form-control" id="issuerNrc" placeholder="Issuer Nrc">
-                </div>
-                <div class="form-group mx-sm-2 mb-2">
-                    <label for="startDate" class="sr-only">Desde</label>
-                    <input type="date" class="form-control" id="startDate" placeholder="Desde">
-                </div>
-                <div class="form-group mx-sm-2 mb-2">
-                    <label for="endDate" class="sr-only">Hasta</label>
-                    <input type="date" class="form-control" id="endDate" placeholder="Hasta">
-                </div>
-                <button type="button" class="btn btn-primary mb-2" id="filterBtn">Search</button>
             </form>
             <div class="table-responsive">
                 <table class="table table-hover table-bordered mt-3">
@@ -117,8 +134,8 @@
                             <td>{{ invoice.Issuer_Nrc }}</td>
                             <td>{{ invoice.Date }}</td>
                             <td>
-                                <button class="btn btn-warning btn-custom" data-toggle="modal" data-target="#fileModal" data-file="../{{ invoice.File_Path_JSON }}" data-type="json">JSON</button>
-                                <button class="btn btn-danger btn-custom" data-toggle="modal" data-target="#fileModal" data-file="../{{ invoice.File_Path_PDF }}" data-type="pdf">PDF</button>
+                                <button class="btn btn-warning btn-custom" style="width:80px;" data-toggle="modal" data-target="#fileModal" data-file="../{{ invoice.File_Path_JSON }}" data-type="json">JSON</button>
+                                <button class="btn btn-danger btn-custom" style="width:80px;" data-toggle="modal" data-target="#fileModal" data-file="../{{ invoice.File_Path_PDF }}" data-type="pdf">PDF</button>
                             </td>
                         </tr>
                         {% endfor %}
@@ -198,8 +215,8 @@
             var downloadPDF = modal.find('#downloadPDF');
             iframe.attr('src', '');
             jsoneditorContainer.html('');
-            downloadJSON.hide(); // Download JSON
-            downloadPDF.hide(); // Download PDF
+            downloadJSON.hide();
+            downloadPDF.hide();
         });
 
         document.getElementById('filterBtn').addEventListener('click', function() {
