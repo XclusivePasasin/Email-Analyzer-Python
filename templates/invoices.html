@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Invoices</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.5.6/jsoneditor.min.css">
+    <style>
+        *{
+            font-family: 'Arial', sans-serif;}
+        body {
+            background-color: #f8f9fa;
+        }
+        .btn-primary{
+            background-color: #003366;
+            border-color: #003366;
+        }
+        .table-container {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .table thead {
+            background-color: #003366;
+            color: #fff;
+            text-align: center;
+        }
+        .table tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+        .header-title {
+            background-color: #003366;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: -20px;
+            text-align: center;
+        }
+        .btn-custom {
+            margin: 2px;
+        }
+        #jsoneditor {
+            width: 100%;
+            height: 400px;
+        }
+        .table td, .table th {
+            padding: 20px;
+        }
+        @media (max-width: 768px) {
+            .table-container {
+                padding: 10px;
+            }
+            .table td, .table th {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="header-title">Invoices</h1>
+        <br>
+        
+        <div class="table-container">
+            
+            <form class="form-inline mb-3" id="filterForm">
+                <div class="form-group mx-sm-2 mb-2">
+                    <label for="genCode" class="sr-only">Generation Code</label>
+                                           
+                    <input type="text" class="form-control" id="genCode" placeholder="Generation Code">
+                </div>
+                <div class="form-group mx-sm-2 mb-2">
+                    <label for="controlNumber" class="sr-only">Control Number</label>
+                    <input type="text" class="form-control" id="controlNumber" placeholder="Control Number">
+                </div>
+                <div class="form-group mx-sm-2 mb-2">
+                    <label for="issuerNit" class="sr-only">Issuer Nit</label>
+                    <input type="text" class="form-control" id="issuerNit" placeholder="Issuer Nit">
+                </div>
+                <div class="form-group mx-sm-2 mb-2">
+                    <label for="issuerNrc" class="sr-only">Issuer Nrc</label>
+                    <input type="text" class="form-control" id="issuerNrc" placeholder="Issuer Nrc">
+                </div>
+                <div class="form-group mx-sm-2 mb-2">
+                    <label for="startDate" class="sr-only">Desde</label>
+                    <input type="date" class="form-control" id="startDate" placeholder="Desde">
+                </div>
+                <div class="form-group mx-sm-2 mb-2">
+                    <label for="endDate" class="sr-only">Hasta</label>
+                    <input type="date" class="form-control" id="endDate" placeholder="Hasta">
+                </div>
+                <button type="button" class="btn btn-primary mb-2" id="filterBtn">Search</button>
+            </form>
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered mt-3">
+                    <thead class="text-align center">
+                        <tr>
+                            <th>Generation Code</th>
+                            <th>Control Number</th>
+                            <th>Receiver Name</th>
+                            <th>Issuer Name</th>
+                            <th>Issuer Nit</th>
+                            <th>Issuer Nrc</th>
+                            <th>Date</th>
+                            <th>Files</th>
+                        </tr>
+                    </thead>
+                    <tbody id="invoiceTable">
+                        {% for invoice in invoices %}
+                        <tr>
+                            <td>{{ invoice.Generation_Code }}</td>
+                            <td>{{ invoice.Control_Number }}</td>
+                            <td>{{ invoice.Receiver_Name }}</td>
+                            <td>{{ invoice.Issuer_Name }}</td>
+                            <td>{{ invoice.Issuer_Nit }}</td>
+                            <td>{{ invoice.Issuer_Nrc }}</td>
+                            <td>{{ invoice.Date }}</td>
+                            <td>
+                                <button class="btn btn-warning btn-custom" data-toggle="modal" data-target="#fileModal" data-file="../{{ invoice.File_Path_JSON }}" data-type="json">JSON</button>
+                                <button class="btn btn-danger btn-custom" data-toggle="modal" data-target="#fileModal" data-file="../{{ invoice.File_Path_PDF }}" data-type="pdf">PDF</button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="fileModal" tabindex="-1" role="dialog" aria-labelledby="fileModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="fileModalLabel">File Preview</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <iframe id="fileFrame" src="" width="100%" height="400px" style="display:none;"></iframe>
+                    <div id="jsoneditor" style="display:none;"></div>
+                </div>
+                <div class="modal-footer">
+                    <a id="downloadJSON" href="#" class="btn btn-info" style="display:none;" download>Download JSON</a>
+                    <a id="downloadPDF" href="#" class="btn btn-danger" style="display:none;" download>Download PDF</a>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.5.6/jsoneditor.min.js"></script>
+    <script>
+        $('#fileModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget); 
+            var file = button.data('file'); 
+            var type = button.data('type'); 
+            var modal = $(this);
+            var iframe = modal.find('#fileFrame');
+            var jsoneditorContainer = modal.find('#jsoneditor');
+            var downloadJSON = modal.find('#downloadJSON');
+            var downloadPDF = modal.find('#downloadPDF');
+
+            if (type === 'json') {
+                iframe.hide();
+                jsoneditorContainer.show();
+                fetch(file)
+                    .then(response => response.json())
+                    .then(data => {
+                        var container = document.getElementById("jsoneditor");
+                        var options = {};
+                        var editor = new JSONEditor(container, options);
+                        editor.set(data);
+                        downloadJSON.attr('href', file);
+                        downloadJSON.show();
+                    })
+                    .catch(error => console.error('Error fetching JSON:', error));
+            } else if (type === 'pdf') {
+                jsoneditorContainer.hide();
+                iframe.show();
+                iframe.attr('src', file);
+
+                downloadPDF.attr('href', file);
+                downloadPDF.show();
+            }
+        });
+
+        $('#fileModal').on('hide.bs.modal', function () {
+            var modal = $(this);
+            var iframe = modal.find('#fileFrame');
+            var jsoneditorContainer = modal.find('#jsoneditor');
+            var downloadJSON = modal.find('#downloadJSON');
+            var downloadPDF = modal.find('#downloadPDF');
+            iframe.attr('src', '');
+            jsoneditorContainer.html('');
+            downloadJSON.hide(); // Download JSON
+            downloadPDF.hide(); // Download PDF
+        });
+
+        document.getElementById('filterBtn').addEventListener('click', function() {
+            var genCode = document.getElementById('genCode').value.toLowerCase();
+            var controlNumber = document.getElementById('controlNumber').value.toLowerCase();
+            var issuerNit = document.getElementById('issuerNit').value.toLowerCase();
+            var issuerNrc = document.getElementById('issuerNrc').value.toLowerCase();
+            var startDate = document.getElementById('startDate').value;
+            var endDate = document.getElementById('endDate').value;
+            var table = document.getElementById('invoiceTable');
+            var tr = table.getElementsByTagName('tr');
+
+            for (var i = 0; i < tr.length; i++) {
+                var tdGenCode = tr[i].getElementsByTagName('td')[0];
+                var tdControlNumber = tr[i].getElementsByTagName('td')[1];
+                var tdIssuerNit = tr[i].getElementsByTagName('td')[4];
+                var tdIssuerNrc = tr[i].getElementsByTagName('td')[5];
+                var tdDate = tr[i].getElementsByTagName('td')[6];
+                
+                if (tdGenCode && tdControlNumber && tdIssuerNit && tdIssuerNrc && tdDate) {
+                    var genCodeValue = tdGenCode.textContent || tdGenCode.innerText;
+                    var controlNumberValue = tdControlNumber.textContent || tdControlNumber.innerText;
+                    var issuerNitValue = tdIssuerNit.textContent || tdIssuerNit.innerText;
+                    var issuerNrcValue = tdIssuerNrc.textContent || tdIssuerNrc.innerText;
+                    var dateValue = tdDate.textContent || tdDate.innerText;
+
+                    var display = true;
+
+                    if (genCode && genCodeValue.toLowerCase().indexOf(genCode) === -1) {
+                        display = false;
+                    }
+                    if (controlNumber && controlNumberValue.toLowerCase().indexOf(controlNumber) === -1) {
+                        display = false;
+                    }
+                    if (issuerNit && issuerNitValue.toLowerCase().indexOf(issuerNit) === -1) {
+                        display = false;
+                    }
+                    if (issuerNrc && issuerNrcValue.toLowerCase().indexOf(issuerNrc) === -1) {
+                        display = false;
+                    }
+                    if (startDate && new Date(dateValue) < new Date(startDate)) {
+                        display = false;
+                    }
+                    if (endDate && new Date(dateValue) > new Date(endDate)) {
+                        display = false;
+                    }
+
+                    tr[i].style.display = display ? "" : "none";
+                }
+            }
+        });
+    </script>
+</body>
+</html>
