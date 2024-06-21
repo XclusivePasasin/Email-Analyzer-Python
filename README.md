@@ -5,7 +5,7 @@ The objective of this project is to develop an automated procedure to analyze em
 
 In order to install the project, we will create a .venv to install the dependencies
 
-# Step 
+# Step One
 ```bash
   pip install virtualenv
 ```
