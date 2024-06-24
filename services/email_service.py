@@ -60,7 +60,7 @@ class EmailService:
                                 if part.get_content_type() == 'application/json':
                                     json_files = download_attachments(part)
                                     for attachment in json_files:
-                                        if attachment.endswith('.json'):
+                                        if attachment.upper().endswith('.JSON'):
                                             generation_code = process_json_file(attachment)
                                             attachments.append(attachment)
                                             if generation_code is None:
