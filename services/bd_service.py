@@ -38,14 +38,14 @@ def check_generation_code_exists(generation_code):
             point.close()
             Connection.close()
 
-def InsertInformation(generation_code, control_number, receiver_name, issuer_name, issuer_nit, issuer_nrc, date, json_path, pdf_path):
+def InsertInformation(data_bd):
     Connection = get_db_connection()
     if Connection is None:
         return
     
     try:
         point = Connection.cursor()
-        # Insertar datos en la tabla
+        # Insert data into table
         sql = """
         INSERT INTO Invoices (
             Generation_Code,
@@ -60,15 +60,15 @@ def InsertInformation(generation_code, control_number, receiver_name, issuer_nam
         ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
         """ 
         data = (
-            generation_code,
-            control_number,
-            receiver_name,
-            issuer_name,
-            issuer_nit,
-            issuer_nrc,
-            date,
-            json_path,
-            pdf_path
+            data_bd['generation_code'],
+            data_bd['control_number'],
+            data_bd['receiver_name'],
+            data_bd['issuer_name'],
+            data_bd['issuer_nit'],
+            data_bd['issuer_nrc'],
+            data_bd['date'],
+            data_bd['json_path'],
+            data_bd['pdf_path']
         )
         point.execute(sql, data)
         Connection.commit()
