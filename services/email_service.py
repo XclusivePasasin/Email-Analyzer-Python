@@ -5,6 +5,7 @@ from datetime import datetime
 from models.email_model import Email
 from utils.email_utils import download_attachments
 from utils.json_utils import process_json_file
+from services.bd_service import *  
 
 class EmailService:
     def __init__(self, username, password):
@@ -26,7 +27,7 @@ class EmailService:
                     raise IMAP4.error(f"Failed to reselect inbox: {status}")
 
             today_date = datetime.now().strftime('%d-%b-%Y')
-            status, messages = self.mail.search(None, f'(UNSEEN SINCE {today_date})')
+            status, messages = self.mail.search(None, f'(SINCE {today_date})')
             if status != 'OK':
                 raise IMAP4.error(f"Failed to search emails: {status}")
 
@@ -43,58 +44,66 @@ class EmailService:
                             try:
                                 email_date_obj = datetime.strptime(email_date, '%a, %d %b %Y %H:%M:%S %z')
                             except ValueError:
-                                continue 
+                                continue
 
                             email_date_str = email_date_obj.strftime('%d-%b-%Y')
 
                             if email_date_str != today_date:
-                                continue  
+                                continue
 
-                            generation_code = None
                             attachments = []
+                            json_data = None
+                            generation_code = None
+                            json_files = []
+                            pdf_files = []
 
-                            # Download and Process JSON attachment
                             for part in msg.walk():
                                 if part.get_content_maintype() == 'multipart':
                                     continue
-                                if part.get_content_type() == 'application/json':
-                                    json_files = download_attachments(part)
-                                    for attachment in json_files:
-                                        if attachment.upper().endswith('.JSON'):
-                                            generation_code = process_json_file(attachment)
-                                            attachments.append(attachment)
-                                            if generation_code is None:
-                                                # Delete attachments JSON if not validate
-                                                for file in attachments:
-                                                    if os.path.exists(file):
-                                                        try:
-                                                            os.remove(file)
-                                                            print(f"Archivo {file} eliminado por falta de nodos requeridos")
-                                                        except Exception as e:
-                                                            print(f"Error deleting file {file}: {e}")
-                                                attachments = []
-                                                break
-                                    if generation_code:
-                                        break  # If a valid JSON was already found, search no further
+                                content_type = part.get_content_type()
+                                if content_type == 'application/json':
+                                    json_files.extend(download_attachments(part))
+                                elif content_type == 'application/pdf':
+                                    pdf_files.extend(download_attachments(part))
 
-                            # Download PDF only if the JSON is valid
-                            if generation_code:
-                                pdf_downloaded = False
-                                for part in msg.walk():
-                                    if part.get_content_maintype() == 'multipart':
-                                        continue
-                                    if part.get_content_type() == 'application/pdf':
-                                        if not pdf_downloaded:
-                                            pdf_files = download_attachments(part)
-                                            for attachment in pdf_files:
-                                                # Rename the PDF with the generation_code
-                                                pdf_new_file_path = os.path.join(os.path.dirname(attachment), f"{generation_code}.pdf")
-                                                os.rename(attachment, pdf_new_file_path)
-                                                attachments.append(pdf_new_file_path)
-                                                pdf_downloaded = True
-                                                break  
+                            # We process the JSON files first
+                            for attachment in json_files:
+                                if attachment.upper().endswith('.JSON'):
+                                    json_data = process_json_file(attachment)
+                                    attachments.append(attachment)
+                                    if json_data is None:
+                                        # Delete invalid JSON files
+                                        for file in attachments:
+                                            if os.path.exists(file):
+                                                try:
+                                                    os.remove(file)
+                                                    print(f"File {file} removed due to lack of required nodes")
+                                                except Exception as e:
+                                                    print(f"Error deleting file {file}: {e}")
+                                        attachments = []
+                                        break
+                                    else:
+                                        generation_code = json_data['identificacion']['codigoGeneracion']
+                                        # Check if the generation code already exists
+                                        if check_generation_code_exists(generation_code):
+                                            print(f"Generation code {generation_code} already exists. Deleting JSON file.")
+                                            if os.path.exists(attachment):
+                                                try:
+                                                    os.remove(attachment)
+                                                    print(f"File {attachment} removed due to duplicate generation code")
+                                                except Exception as e:
+                                                    print(f"Error deleting file {attachment}: {e}")
+                                            attachments = []
+                                            break
 
-                            if generation_code:
+                            # We process PDF files
+                            if json_data:
+                                for attachment in pdf_files:
+                                    pdf_new_file_path = os.path.join(os.path.dirname(attachment), f"{generation_code}.pdf")
+                                    os.rename(attachment, pdf_new_file_path)
+                                    attachments.append(pdf_new_file_path)
+
+                            if generation_code and attachments:
                                 email = Email(
                                     sender=msg['from'],
                                     subject=msg['subject'],
@@ -103,11 +112,26 @@ class EmailService:
                                 )
                                 emails.append(email)
                                 self.mail.store(email_id, '+FLAGS', '\\Seen')
+
+                                # Insertar datos en la base de datos
+                                json_path = os.path.join(os.path.dirname(attachments[0]), f"{generation_code}.json")
+                                pdf_path = os.path.join(os.path.dirname(attachments[-1]), f"{generation_code}.pdf")
+                                data_bd = {
+                                    'generation_code': json_data['identificacion']['codigoGeneracion'],
+                                    'control_number': json_data['identificacion']['numeroControl'],
+                                    'receiver_name': json_data['receptor']['nombre'],
+                                    'issuer_name': json_data['emisor']['nombre'],
+                                    'issuer_nit': json_data['emisor']['nit'],
+                                    'issuer_nrc': json_data['emisor']['nrc'],
+                                    'date': json_data['identificacion']['fecEmi'],
+                                    'json_path': json_path,
+                                    'pdf_path': pdf_path
+                                }
+                                InsertInformation(data_bd)
                             else:
                                 # Mark as unread if the JSON is invalid
                                 self.mail.store(email_id, '-FLAGS', '\\Seen')
                         else:
-                           # Mark as unread if invalid
                             self.mail.store(email_id, '-FLAGS', '\\Seen')
             return emails
         except IMAP4.error as e:

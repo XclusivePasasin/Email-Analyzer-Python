@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, render_template
 from services.email_service import EmailService
 from config import Config
-from utils.db_utils import get_all_invoices
+from services.bd_service import get_all_invoices
 
 email_bp = Blueprint('email_bp', __name__)
 
